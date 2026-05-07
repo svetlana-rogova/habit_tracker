@@ -14,4 +14,4 @@ class IsPublic(BasePermission):
     Разрешение для просмотра публичных привычек.
     """
     def has_object_permission(self, request, view, obj):
-        return obj.is_public
+        return obj.is_public or obj.owner == request.user
