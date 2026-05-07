@@ -1,8 +1,4 @@
 from django.db import models
-from django.core.exceptions import ValidationError
-
-from tracker.validators import validate_habit_reward, validate_time_to_complete, validate_related_habit, \
-    validate_pleasant_habit, validate_periodicity
 
 
 class Habit(models.Model):
@@ -18,7 +14,7 @@ class Habit(models.Model):
     related_habit = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True,
                                       verbose_name='Связанная привычка')
     periodicity = models.PositiveIntegerField(default=1, verbose_name='Периодичность')
-    award = models.TextField(verbose_name='Вознаграждение')
+    award = models.TextField(verbose_name='Вознаграждение', null=True, blank=True)
     time_to_complete = models.TimeField(verbose_name='Время на выполнение')
     is_public = models.BooleanField(default=False, verbose_name="Опубликовать")
 
