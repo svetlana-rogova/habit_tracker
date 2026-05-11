@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import CustomUser
 
+
 class RegisterSerializer(serializers.ModelSerializer):
     """Сериализатор для регистрации """
     class Meta:

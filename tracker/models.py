@@ -6,7 +6,7 @@ class Habit(models.Model):
     Модель привычки
     """
     owner = models.ForeignKey('user.CustomUser', on_delete=models.CASCADE, related_name='habit',
-                             verbose_name='Пользователь')
+                              verbose_name='Пользователь')
     place = models.CharField(max_length=100,  verbose_name='Место')
     time = models.DateTimeField(verbose_name='Время начала выполнения')
     action = models.TextField(verbose_name='Действие')

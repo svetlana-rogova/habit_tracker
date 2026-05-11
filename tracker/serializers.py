@@ -27,4 +27,3 @@ class HabitSerializer(serializers.ModelSerializer):
         validate_pleasant_habit(pleasant_habit, related_habit, award)
         validate_periodicity(periodicity)
         return attrs
-

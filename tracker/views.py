@@ -1,5 +1,4 @@
 from rest_framework import viewsets
-
 from tracker.models import Habit
 from tracker.pagination import MyPagination
 from tracker.permissions import IsOwner, IsPublic
@@ -7,6 +6,7 @@ from rest_framework.permissions import AllowAny
 from tracker.serializers import HabitSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
+
 
 class HabitViewSet(viewsets.ModelViewSet):
     """

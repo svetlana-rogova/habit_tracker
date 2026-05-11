@@ -157,7 +157,7 @@ CSRF_TRUSTED_ORIGINS = [
 TELEGRAM_API = os.getenv('TELEGRAM_API')
 TELEGRAM_BOT = os.getenv('TELEGRAM_BOT')
 
-CELERY_BEAT_SCHEDULE={
+CELERY_BEAT_SCHEDULE = {
     'task-name': {
         'task': 'tracker.tasks.send_message',
         'schedule': timedelta(minutes=1),
