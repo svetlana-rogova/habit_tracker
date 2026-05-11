@@ -1,6 +1,7 @@
 import requests
-from config import settings
 from django.core.mail import send_mail
+
+from config import settings
 
 
 def send_tg_message(chat_id, habit):

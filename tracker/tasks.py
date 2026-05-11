@@ -1,7 +1,9 @@
 from celery import shared_task
 from django.utils import timezone
+
 from tracker.models import Habit
-from tracker.services import send_tg_message, send_email_message
+from tracker.services import send_email_message
+from tracker.services import send_tg_message
 
 
 @shared_task

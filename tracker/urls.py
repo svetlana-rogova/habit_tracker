@@ -1,4 +1,5 @@
 from rest_framework.routers import DefaultRouter
+
 from tracker.views import HabitViewSet
 
 app_name = 'tracker'

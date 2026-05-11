@@ -1,8 +1,11 @@
 from rest_framework import serializers
 
 from tracker.models import Habit
-from tracker.validators import validate_habit_reward, validate_time_to_complete, validate_related_habit, \
-    validate_periodicity, validate_pleasant_habit
+from tracker.validators import validate_habit_reward
+from tracker.validators import validate_periodicity
+from tracker.validators import validate_pleasant_habit
+from tracker.validators import validate_related_habit
+from tracker.validators import validate_time_to_complete
 
 
 class HabitSerializer(serializers.ModelSerializer):
