@@ -8,10 +8,10 @@ def send_tg_message(chat_id, habit):
     """
     Функция отправки сообщений через Telegram
     """
-    url = f'{settings.TELEGRAM_API}{settings.TELEGRAM_BOT}/sendMessage'
+    url = f"{settings.TELEGRAM_API}{settings.TELEGRAM_BOT}/sendMessage"
     params = {
-        'text': f'Пора выполнить привычку: {habit.action}',
-        'chat_id': chat_id,
+        "text": f"Пора выполнить привычку: {habit.action}",
+        "chat_id": chat_id,
     }
     response = requests.get(url, params=params, timeout=10)
     if response.status_code != 200:

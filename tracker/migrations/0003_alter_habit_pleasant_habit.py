@@ -7,13 +7,13 @@ from django.db import models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tracker', '0002_initial'),
+        ("tracker", "0002_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='habit',
-            name='pleasant_habit',
-            field=models.BooleanField(default=True, verbose_name='Признак приятной привычки'),
+            model_name="habit",
+            name="pleasant_habit",
+            field=models.BooleanField(default=True, verbose_name="Признак приятной привычки"),
         ),
     ]

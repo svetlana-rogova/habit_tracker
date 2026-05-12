@@ -8,24 +8,29 @@ from django.db import models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tracker', '0003_alter_habit_pleasant_habit'),
+        ("tracker", "0003_alter_habit_pleasant_habit"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='habit',
-            name='periodicity',
-            field=models.PositiveIntegerField(default=1, verbose_name='Периодичность'),
+            model_name="habit",
+            name="periodicity",
+            field=models.PositiveIntegerField(default=1, verbose_name="Периодичность"),
         ),
         migrations.AlterField(
-            model_name='habit',
-            name='pleasant_habit',
-            field=models.BooleanField(default=False, verbose_name='Признак приятной привычки'),
+            model_name="habit",
+            name="pleasant_habit",
+            field=models.BooleanField(default=False, verbose_name="Признак приятной привычки"),
         ),
         migrations.AlterField(
-            model_name='habit',
-            name='related_habit',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
-                                    to='tracker.habit', verbose_name='Связанная привычка'),
+            model_name="habit",
+            name="related_habit",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="tracker.habit",
+                verbose_name="Связанная привычка",
+            ),
         ),
     ]

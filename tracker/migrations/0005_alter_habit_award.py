@@ -7,13 +7,13 @@ from django.db import models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('tracker', '0004_alter_habit_periodicity_alter_habit_pleasant_habit_and_more'),
+        ("tracker", "0004_alter_habit_periodicity_alter_habit_pleasant_habit_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='habit',
-            name='award',
-            field=models.TextField(blank=True, null=True, verbose_name='Вознаграждение'),
+            model_name="habit",
+            name="award",
+            field=models.TextField(blank=True, null=True, verbose_name="Вознаграждение"),
         ),
     ]

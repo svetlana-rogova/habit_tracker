@@ -14,29 +14,30 @@ class HabitViewSet(viewsets.ModelViewSet):
     """
     Представление для работы с привычками (CRUD операции).
     """
+
     pagination_class = MyPagination
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
 
     def get_queryset(self):
-        if self.action == 'public':
+        if self.action == "public":
             return Habit.objects.filter(is_public=True)
 
         return Habit.objects.filter(owner=self.request.user)
 
     def get_permissions(self):
-        if self.action in ['update', 'destroy']:
+        if self.action in ["update", "destroy"]:
             self.permission_classes = [IsOwner]
-        elif self.action == 'retrieve':
+        elif self.action == "retrieve":
             self.permission_classes = [IsPublic]
-        elif self.action == 'public':
+        elif self.action == "public":
             self.permission_classes = [AllowAny]
         return [permission() for permission in self.permission_classes]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    @action(detail=False, methods=['get'], permission_classes=[])
+    @action(detail=False, methods=["get"], permission_classes=[])
     def public(self, request):
         queryset = Habit.objects.filter(is_public=True)
 
