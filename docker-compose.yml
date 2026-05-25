@@ -2,7 +2,7 @@ services:
 
   web:
     build: .
-    command: bash -c "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8000"
+    command: bash -c "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:8001"
     volumes:
       - .:/app
     expose:
@@ -22,13 +22,13 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
     environment:
-      DB_HOST: db
-      POSTGRES_DB: ${NAME}
-      POSTGRES_USER: ${USER}
-      POSTGRES_PASSWORD: ${PASSWORD}
+      HOST_DB: db
+      POSTGRES_DB: ${NAME_DB}
+      POSTGRES_USER: ${USER_DB}
+      POSTGRES_PASSWORD: ${PASSWORD_DB}
 
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U $USER" ]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER}" ]
       interval: 30s
       timeout: 10s
       retries: 5

@@ -77,11 +77,11 @@ jobs:
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DEBUG: 'False'
-          DB_NAME: test_db
-          DB_USER: test_user
-          DB_PASSWORD: test_password
-          DB_HOST: localhost
-          DB_PORT: '5432'
+          NAME: test_db
+          USER: test_user
+          PASSWORD: test_password
+          HOST: localhost
+          PORT: '5432'
           ALLOWED_HOSTS: 'localhost,127.0.0.1'
         run: python manage.py migrate --database=default
 
@@ -89,11 +89,11 @@ jobs:
         env:
           SECRET_KEY: ${{ secrets.SECRET_KEY }}
           DEBUG: 'False'
-          DB_NAME: test_db
-          DB_USER: test_user
-          DB_PASSWORD: test_password
-          DB_HOST: localhost
-          DB_PORT: '5432'
+          NAME: test_db
+          USER: test_user
+          PASSWORD: test_password
+          HOST: localhost
+          PORT: '5432'
           ALLOWED_HOSTS: 'localhost,127.0.0.1'
         run: python manage.py test
 
@@ -127,7 +127,7 @@ jobs:
       - name: Deploy to Server (Docker Compose)
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-            cd ~/Habit_tracker
+            cd ~/habit_tracker
             git pull
             docker compose pull
             docker compose down
