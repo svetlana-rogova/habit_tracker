@@ -22,6 +22,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
     environment:
+      DB_HOST: db
       POSTGRES_DB: ${NAME}
       POSTGRES_USER: ${USER}
       POSTGRES_PASSWORD: ${PASSWORD}
