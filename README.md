@@ -18,19 +18,11 @@
 ```
 git clone https://github.com/svetlana-rogova/habit_tracker
 ```
-3. Установите зависимости через Poetry:
+3. Для запуска проекта используется docker-compose.yml:
 ```
-poetri install
+docker compose up --build
 ```
-4. Активируйте виртуальное окружение:
-```
-poetry shell
-```
-5. Запустите проект:
-```
-python manage.py migrate
-python manage.py runserver
-```
+
 ## Структура проекта:
 
 - tracker/ — логика привычек
@@ -79,6 +71,27 @@ coverage report
 - PUT /habits/{id}/ — обновление
 - DELETE /habits/{id}/ — удаление
 - GET /habits/public/ — публичные привычки
+
+## CI/CD (GitHub Actions):
+
+В проекте настроен CI/CD пайплайн с использованием GitHub Actions.
+Pipeline включает:
+- Запуск тестов
+- Проверку кода (linting: flake8)
+- Проверку сборки Docker-образов
+- Автоматический деплой на сервер 
+
+## GitHub Secrets
+
+В репозитории необходимо настроить:
+
+SSH_KEY — приватный SSH ключ
+SERVER_IP — IP адрес сервера
+SSH_USER — пользователь 
+DEPLOY_DIR — путь к проекту на сервере
+DOCKER_HUB_USERNAME — логин Docker Hub
+DOCKER_HUB_ACCESS_TOKEN — токен Docker Hub
+SECRET_KEY — Django SECRET_KEY
 
 ## Технологии:
 - Python 3.13
